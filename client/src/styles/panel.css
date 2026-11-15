@@ -1,0 +1,119 @@
+/* Login / register / admin / critic panels. Uses the site's theme variables from base.css. */
+.rz-muted { color: var(--muted); font-size: 0.92rem; }
+
+/* ---------- auth ---------- */
+.rz-auth { min-height: 100vh; display: grid; place-items: center; padding: calc(var(--header-height) + 32px) 16px 48px; background: var(--bg); }
+.rz-auth-tall { align-items: start; padding-top: calc(var(--header-height) + 48px); padding-bottom: 56px; }
+.rz-auth-card { width: 100%; max-width: 460px; background: var(--card); border: 1px solid rgba(128,128,128,.22); border-top: 3px solid var(--accent); border-radius: 14px; padding: 28px 24px; display: flex; flex-direction: column; gap: 14px; color: var(--text); }
+.rz-auth-card h1 { font-size: 1.5rem; }
+.rz-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.rz-switch { text-align: center; color: var(--muted); }
+.rz-switch a { color: var(--accent); font-weight: 600; }
+.rz-demo { font-size: .85rem; color: var(--muted); border-top: 1px dashed rgba(128,128,128,.3); padding-top: 12px; }
+.rz-demo summary { cursor: pointer; }
+.rz-demo ul { list-style: none; margin-top: 8px; display: grid; gap: 4px; }
+
+/* ---------- fields ---------- */
+.rz-field { display: flex; flex-direction: column; gap: 6px; font-size: .92rem; }
+.rz-field > span { font-weight: 600; color: var(--text); }
+.rz-field input, .rz-field select, .rz-field textarea,
+.rz-table select { font: inherit; color: var(--text); background: var(--bg); border: 1px solid rgba(128,128,128,.35); border-radius: 8px; padding: 10px 12px; width: 100%; }
+.rz-field textarea { resize: vertical; line-height: 1.9; }
+.rz-field input:focus, .rz-field select:focus, .rz-field textarea:focus, .rz-table select:focus { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+.rz-form-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 12px; }
+
+/* ---------- buttons (same look as the site's .btn) ---------- */
+.rz-btn { font: inherit; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 18px; border-radius: 8px; border: 1px solid var(--accent); background: transparent; color: var(--text); transition: 0.4s; }
+.rz-btn:hover:not(:disabled) { background: #000; color: #fff; border-color: #8f7845; }
+.rz-btn.primary { background: #b8925a; color: #fff; }
+.rz-btn.primary:hover:not(:disabled) { background: #000; color: #fff; border-color: #8f7845; }
+.rz-btn.danger { border-color: #c0392b; color: #c0392b; }
+.rz-btn.danger:hover:not(:disabled) { background: #c0392b; color: #fff; border-color: #c0392b; }
+.rz-btn.sm { padding: 4px 14px; font-size: .85rem; }
+.rz-btn.block { width: 100%; padding: 10px 18px; }
+.rz-btn:disabled { opacity: .4; cursor: not-allowed; }
+.rz-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+/* ---------- alerts ---------- */
+.rz-alert { padding: 10px 12px; border-radius: 8px; background: rgba(192,57,43,.12); border: 1px solid rgba(192,57,43,.4); color: #c0392b; font-size: .92rem; }
+.rz-alert.info { background: var(--hover); border-color: var(--accent); color: var(--text); }
+[data-theme="dark"] .rz-alert:not(.info) { color: #ff8a7a; }
+
+/* ---------- panels ---------- */
+.rz-panel { padding: calc(var(--header-height) + 16px) 0 56px; color: var(--text); background: var(--bg); min-height: 100vh; }
+.rz-panel-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 2px solid rgba(184,146,90,.18); }
+.rz-panel-head h1 { font-size: 1.6rem; display: flex; align-items: center; gap: 10px; }
+.rz-panel-head h1 i { color: var(--accent); }
+.rz-box { background: var(--card); border: 1px solid rgba(128,128,128,.2); border-radius: 12px; padding: 24px; margin-top: 24px; display: flex; flex-direction: column; gap: 16px; }
+.rz-box h2 { font-size: 1.15rem; border-right: 3px solid var(--accent); padding-right: 10px; }
+
+.rz-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-top: 4px; }
+.rz-stat { display: flex; align-items: center; gap: 14px; background: var(--card); border: 1px solid rgba(128,128,128,.2); border-radius: 12px; padding: 16px; }
+.rz-stat i { font-size: 1.4rem; color: var(--accent); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 10px; background: var(--hover); }
+.rz-stat-value { font-size: 1.5rem; font-weight: 700; }
+.rz-stat-label { color: var(--muted); font-size: .88rem; }
+
+.rz-tabs, .rz-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.rz-tabs { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 6px; }
+.rz-tabs button { white-space: nowrap; }
+.rz-filters { margin-bottom: 0; }
+.rz-tabs button, .rz-filters button { font: inherit; cursor: pointer; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(128,128,128,.3); background: transparent; color: var(--text); }
+.rz-tabs button:hover, .rz-filters button:hover { background: var(--hover); }
+.rz-tabs button.active, .rz-filters button.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.rz-tabs button i { margin-left: 6px; }
+
+.rz-list, .rz-reviews { list-style: none; display: grid; gap: 12px; }
+.rz-list li { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 10px 0; border-bottom: 1px solid rgba(128,128,128,.15); }
+.rz-reviews li { border: 1px solid rgba(128,128,128,.2); border-radius: 10px; padding: 14px; display: grid; gap: 8px; background: var(--bg); }
+.rz-reviews p { line-height: 1.9; white-space: pre-wrap; }
+.rz-review-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+.rz-table-wrap { overflow-x: auto; }
+.rz-table { width: 100%; border-collapse: collapse; min-width: 560px; }
+.rz-table th, .rz-table td { text-align: right; padding: 10px 12px; border-bottom: 1px solid rgba(128,128,128,.18); }
+.rz-table th { color: var(--muted); font-weight: 600; font-size: .88rem; }
+.rz-table select { padding: 6px 8px; }
+
+.rz-badge { font-size: .78rem; padding: 3px 10px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.rz-badge.published { color: #2e8b57; }
+.rz-badge.pending { color: var(--accent); }
+.rz-badge.draft { color: var(--muted); }
+.rz-badge.rejected { color: #c0392b; }
+
+/* header login link */
+.rz-header-link { display: inline-flex; align-items: center; gap: 6px; padding: 7px 14px; border-radius: 8px; border: 1px solid var(--accent); color: var(--text); font-size: .9rem; white-space: nowrap; }
+.rz-header-link { font: inherit; background: transparent; cursor: pointer; }
+.rz-header-link:hover { background: #000; color: #fff; border-color: #8f7845; }
+.rz-header-link.primary { background: var(--accent); color: #fff; }
+.rz-header-link.primary:hover { background: #000; border-color: #8f7845; }
+@media (max-width: 480px) { .rz-header-link { padding: 7px 10px; font-size: .82rem; } .rz-header-link i { display: none; } }
+
+@media (max-width: 600px) {
+  .rz-row, .rz-form-grid { grid-template-columns: 1fr; }
+  .rz-auth-card { padding: 22px 16px; }
+  .rz-auth-tall { padding-top: calc(var(--header-height) + 28px); }
+}
+
+/* ---------- admin extras ---------- */
+.rz-kind-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 24px; }
+.rz-kind-card { background: var(--card); border: 1px solid rgba(128,128,128,.2); border-top: 3px solid var(--accent); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; gap: 14px; }
+.rz-kind-card h2 { font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+.rz-kind-card h2 i { color: var(--accent); }
+.rz-kind-card dl { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.rz-kind-card dt { color: var(--muted); font-size: .82rem; }
+.rz-kind-card dd { font-size: 1.25rem; font-weight: 700; }
+.rz-toolbar { display: flex; gap: 10px; flex-wrap: wrap; }
+.rz-toolbar input, .rz-toolbar select { font: inherit; color: var(--text); background: var(--bg); border: 1px solid rgba(128,128,128,.35); border-radius: 8px; padding: 9px 12px; }
+.rz-toolbar input { flex: 1; min-width: 200px; }
+.rz-toolbar input:focus, .rz-toolbar select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.rz-role { margin-left: 8px; }
+.rz-table .rz-badge { margin-right: 6px; }
+
+/* ---------- modal ---------- */
+.rz-modal-backdrop { position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,.55); display: grid; place-items: center; padding: 16px; overflow-y: auto; }
+.rz-modal { width: 100%; max-width: 560px; background: var(--card); color: var(--text); border: 1px solid rgba(128,128,128,.25); border-top: 3px solid var(--accent); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 16px; }
+.rz-modal-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.rz-modal-top h2 { font-size: 1.1rem; }
+.rz-modal-close { font: inherit; cursor: pointer; background: transparent; border: 0; color: var(--text); font-size: 1.1rem; padding: 4px 8px; border-radius: 6px; }
+.rz-modal-close:hover { background: var(--hover); }
+.rz-modal-form { display: flex; flex-direction: column; gap: 14px; }

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { roleHome, useAuth } from '../context/AuthContext'
 
 const links = [
   ['/', 'خانه'],
@@ -10,6 +11,8 @@ const links = [
 ]
 
 export default function Drawer({ open, onClose }) {
+  const { user } = useAuth()
+  const all = user ? [...links, [roleHome(user.role), 'پنل من']] : [...links, ['/login', 'ورود'], ['/register', 'ثبت‌نام']]
   return (
     <>
       <div className={`drawer-backdrop${open ? ' open' : ''}`} tabIndex={-1} onClick={onClose} />
@@ -18,7 +21,7 @@ export default function Drawer({ open, onClose }) {
           ✕
         </button>
         <nav style={{ display: 'flex', flexDirection: 'column', gap: 6, marginTop: 6 }}>
-          {links.map(([to, label]) => (
+          {all.map(([to, label]) => (
             <Link key={to} to={to}>
               {label}
             </Link>
