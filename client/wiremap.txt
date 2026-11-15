@@ -1,0 +1,25 @@
+revizone/
+│
+├── public/
+│   ├── images
+│   ├── fonts
+│   └── logo.svg
+│
+├── src/
+│   ├── assets
+│   │
+│   ├── components
+│   │   ├── common
+│   │   │
+│   │   ├── layout
+│   │   │
+│   │   └── cards
+│   │
+│   ├── pages
+│   │
+│   │
+│   ├── App.tsx
+│   └── main.tsx
+│
+├── package.json
+└── vite.config.ts

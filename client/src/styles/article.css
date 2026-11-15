@@ -1,0 +1,190 @@
+.article-page {
+      --bg-light: #FAFAFC;
+      --card-bg: white;
+      --text: #0F1724;
+      --text-secondary: #556170;
+      --accent: #B8925A;
+      --hover: rgba(184, 146, 90, 0.1);
+      --shadow: 0 4px 12px rgba(0,0,0,0.03);
+      --radius: 12px;
+      --transition: all 220ms ease;
+    }
+
+.article-page * { margin: 0; padding: 0; box-sizing: border-box; }
+
+.article-page {
+      font-family: 'Vazirmatn', sans-serif;
+      background: var(--bg-light);
+      color: var(--text);
+      overflow-x: hidden;
+      line-height: 1.8;
+      scroll-behavior: smooth;
+    }
+
+.article-page a { text-decoration: none; color: inherit; }
+
+.article-page .hero-article {
+      height: 400px;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), var(--hero-image) center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 64px;
+      position: relative;
+      color: white;
+    }
+
+.article-page .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+    }
+
+.article-page .hero-content h1 {
+      font-size: 52px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+.article-page .hero-meta {
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+.article-page .article-body {
+      background: var(--bg-light);
+      padding: 80px 0;
+    }
+
+.article-page .article-container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+.article-page .article-content p {
+      font-size: 18px;
+      margin-bottom: 24px;
+      line-height: 1.8;
+      color: var(--text-secondary);
+    }
+
+.article-page .divider {
+      height: 1px;
+      background: var(--accent);
+      margin: 50px 0;
+    }
+
+.article-page h2 {
+      font-size: 24px;
+      color: var(--accent);
+      margin: 50px 0 24px;
+    }
+
+.article-page .quote {
+      background: var(--card-bg);
+      padding: 30px;
+      margin: 50px 0;
+      border-right: 3px solid var(--accent);
+      font-style: italic;
+      font-size: 20px;
+      line-height: 1.7;
+      box-shadow: var(--shadow);
+    }
+
+.article-page .article-image {
+      width: 100%;
+      border-radius: 8px;
+      margin: 50px 0;
+      box-shadow: var(--shadow);
+    }
+
+.article-page .image-caption {
+      text-align: center;
+      font-size: 15px;
+      color: var(--accent);
+      margin-top: 12px;
+    }
+
+.article-page .note {
+      background: var(--hover);
+      padding: 24px;
+      border-radius: var(--radius);
+      margin: 50px 0;
+      color: var(--text);
+    }
+
+.article-page .note p {
+      margin: 0;
+    }
+
+.article-page .note::before {
+      content: "❗";
+      margin-left: 8px;
+    }
+
+.article-page .author-rating {
+      background: var(--card-bg);
+      padding: 30px;
+      text-align: center;
+      margin: 60px 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+.article-page .author-rating p {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+    }
+
+.article-page .rating-stars {
+      color: var(--text);
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+.article-page .rating-score {
+      color: var(--accent);
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+.article-page .tags-section {
+      margin-top: 70px;
+      padding-top: 50px;
+      border-top: 1px solid var(--accent);
+    }
+
+.article-page .tags-title {
+      margin-bottom: 16px;
+      color: var(--accent);
+    }
+
+.article-page .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+.article-page .tag {
+      padding: 6px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 20px;
+      font-size: 14px;
+      color: var(--accent);
+      transition: var(--transition);
+    }
+
+.article-page .tag:hover {
+      background: var(--hover);
+    }
+
+@media (max-width: 768px) {
+  .article-page .hero-content h1 { font-size: 32px; }
+  .article-page .hero-meta { font-size: 14px; }
+  .article-page .article-content p, .article-page .quote {
+        font-size: 17px;
+      }
+  .article-page h2 { font-size: 20px; }
+}
