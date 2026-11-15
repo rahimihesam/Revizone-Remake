@@ -1,4 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom'
+import { roleHome, useAuth } from '../context/AuthContext'
 
 const genres = [
   ['action', 'اکشن'],
@@ -17,6 +18,7 @@ const menu = [
 
 export default function Header({ theme, onToggleTheme, onOpenDrawer, searchOpen, onToggleSearch, onCloseSearch }) {
   const navigate = useNavigate()
+  const { user, logout } = useAuth()
 
   function handleSearchSubmit(e) {
     e.preventDefault()
@@ -60,6 +62,25 @@ export default function Header({ theme, onToggleTheme, onOpenDrawer, searchOpen,
         </nav>
 
         <div className="header-actions">
+          {user ? (
+            <>
+              <Link className="rz-header-link" to={roleHome(user.role)}>
+                <i className="fas fa-user" /> <span>پنل من</span>
+              </Link>
+              <button type="button" className="rz-header-link" onClick={logout} aria-label="خروج">
+                <i className="fas fa-right-from-bracket" /> <span>خروج</span>
+              </button>
+            </>
+          ) : (
+            <>
+              <Link className="rz-header-link" to="/login">
+                <i className="fas fa-right-to-bracket" /> <span>ورود</span>
+              </Link>
+              <Link className="rz-header-link primary" to="/register">
+                <i className="fas fa-user-plus" /> <span>ثبت‌نام</span>
+              </Link>
+            </>
+          )}
           <button className="search-icon-btn icon-btn" aria-label="جستجو" onClick={onToggleSearch}>
             <i className="fas fa-search" />
           </button>
