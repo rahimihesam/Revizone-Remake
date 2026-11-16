@@ -1,0 +1,9 @@
+import { Router } from "express";
+
+import apiV1Routes from "#api/v1/routes/index.js";
+
+const router = Router();
+
+router.use("/v1", apiV1Routes);
+
+export default router;
