@@ -13,11 +13,13 @@
   "type": "module",
   "imports": {
     "#api/*": "./src/api/*",
-    "#controllers/*": "./src/controllers/*"
+    "#controllers/*": "./src/controllers/*",
+    "#config/*": "./src/config/*"
   },
   "dependencies": {
     "dotenv": "^18.0.10",
-    "express": "^5.3.0"
+    "express": "^5.3.0",
+    "mysql2": "^3.24.6"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
