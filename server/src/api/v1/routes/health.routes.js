@@ -1,19 +1,11 @@
 import { Router } from "express";
 
+import { health, version } from "#controllers/health.controller.js";
+
 const router = Router();
 
-router.get("/", (req, res) => {
-  return res.status(200).json({
-    success: true,
-    message: "Revisone API is running...",
-  });
-});
+router.get("/", health);
 
-router.get("/version", (req, res) => {
-  return res.status(200).json({
-    success: true,
-    message: "version 1",
-  });
-});
+router.get("/version", version);
 
 export default router;
