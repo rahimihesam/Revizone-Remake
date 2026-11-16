@@ -1,12 +1,9 @@
 import express from "express";
 
+import apiRoutes from "#api/index.js";
+
 const app = express();
 
-app.get("/api", (req, res) => {
-  return res.status(200).json({
-    success: true,
-    message: "Api is running...",
-  });
-});
+app.use("/api", apiRoutes);
 
 export default app;
