@@ -12,7 +12,8 @@
   "license": "ISC",
   "type": "module",
   "imports": {
-    "#api/*": "./src/api/*"
+    "#api/*": "./src/api/*",
+    "#controllers/*": "./src/controllers/*"
   },
   "dependencies": {
     "dotenv": "^18.0.10",
