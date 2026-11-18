@@ -19,18 +19,20 @@ A Persian (RTL) website for **movie, TV series and game reviews**, with analytic
 
 ## Tech stack
 
-| Area | Tools |
-| --- | --- |
-| UI | React 19 |
-| Build / dev server | Vite |
-| Routing | react-router-dom |
-| Styling | Custom CSS (`styles/`) and Tailwind (enabled in `index.css`) |
-| Fonts & icons | Vazirmatn and Inter (Google Fonts), Font Awesome (CDN) |
-| Server (planned) | Node.js |
+| Area               | Tools                                                        |
+| ------------------ | ------------------------------------------------------------ |
+| UI                 | React 19                                                     |
+| Build / dev server | Vite                                                         |
+| Routing            | react-router-dom                                             |
+| Styling            | Custom CSS (`styles/`) and Tailwind (enabled in `index.css`) |
+| Fonts & icons      | Vazirmatn and Inter (Google Fonts), Font Awesome (CDN)       |
+| Server (planned)   | Node.js                                                      |
 
 ## Getting started
 
-Requirement: Node.js
+Requirement: Node.js (and for the backend: MySQL)
+
+### Client (Frontend)
 
 ```bash
 cd client
@@ -46,45 +48,67 @@ npm run preview   # preview the production build
 npm run lint      # run ESLint
 ```
 
+### Server (Backend)
+
+```bash
+cd server
+npm i
+npm run dev
+```
+
+### Configure environment variables
+
+Copy the example file and fill in your values:
+
+```bash
+cp .env.example .env
+```
+
+### Create the database
+
+Import `database/schema.sql` into MySQL. the creates the `revizone_db` database and the tables.
+
 ## Project structure
 
 ```
+
 Revizone-Remake/
 ├── client/
-│   ├── public/
-│   │   ├── images/            # posters and images
-│   │   └── logo.png
-│   └── src/
-│       ├── App.jsx            # routes
-│       ├── main.jsx
-│       ├── index.css          # Tailwind + styles/base.css
-│       ├── layout/            # Header, Drawer, Footer, MainLayout
-│       ├── pages/             # Home, Movies, Series, Games, Articles, ...
-│       ├── cards/             # reusable cards (TopItem, GenreCard, ...)
-│       ├── components/
-│       │   ├── common/        # Hero, SectionTitle, ScrollToTop, ProtectedRoute
-│       │   └── panel/         # dashboard and critic panel components
-│       ├── context/           # AuthContext (login and roles)
-│       ├── hooks/             # useTheme, useReviews
-│       ├── data/              # media.js, articles.js
-│       ├── content/articles/  # full article bodies
-│       └── styles/            # base, panel, media-review, article, not-found
-└── server/                    # still empty
+│ ├── public/
+│ │ ├── images/ # posters and images
+│ │ └── logo.png
+│ └── src/
+│ ├── App.jsx # routes
+│ ├── main.jsx
+│ ├── index.css # Tailwind + styles/base.css
+│ ├── layout/ # Header, Drawer, Footer, MainLayout
+│ ├── pages/ # Home, Movies, Series, Games, Articles, ...
+│ ├── cards/ # reusable cards (TopItem, GenreCard, ...)
+│ ├── components/
+│ │ ├── common/ # Hero, SectionTitle, ScrollToTop, ProtectedRoute
+│ │ └── panel/ # dashboard and critic panel components
+│ ├── context/ # AuthContext (login and roles)
+│ ├── hooks/ # useTheme, useReviews
+│ ├── data/ # media.js, articles.js
+│ ├── content/articles/ # full article bodies
+│ └── styles/ # base, panel, media-review, article, not-found
+└── server/ # still empty
+
 ```
 
 ## Routes
 
-| Path | Page | Access |
-| --- | --- | --- |
-| `/` | Home | Everyone |
-| `/movies`, `/series`, `/games` | Listing for each category | Everyone |
-| `/movies/:slug`, `/series/:slug`, `/games/:slug` | Review of one movie, series or game | Everyone |
-| `/articles`, `/articles/:slug` | Articles | Everyone |
-| `/search?q=...` | Search | Everyone |
-| `/about` | About us | Everyone |
-| `/login`, `/register` | Login and registration | Everyone |
-| `/critic/film`, `/critic/series`, `/critic/game` | Critic panel | The critic of that category, and admins |
-| `/admin` | Admin dashboard | Admins only |
+| Path                                             | Page                                | Access                                  |
+| ------------------------------------------------ | ----------------------------------- | --------------------------------------- |
+| `/`                                              | Home                                | Everyone                                |
+| `/movies`, `/series`, `/games`                   | Listing for each category           | Everyone                                |
+| `/movies/:slug`, `/series/:slug`, `/games/:slug` | Review of one movie, series or game | Everyone                                |
+| `/articles`, `/articles/:slug`                   | Articles                            | Everyone                                |
+| `/search?q=...`                                  | Search                              | Everyone                                |
+| `/about`                                         | About us                            | Everyone                                |
+| `/login`, `/register`                            | Login and registration              | Everyone                                |
+| `/critic/film`, `/critic/series`, `/critic/game` | Critic panel                        | The critic of that category, and admins |
+| `/admin`                                         | Admin dashboard                     | Admins only                             |
 
 ## Roles and review workflow
 
@@ -97,12 +121,12 @@ Roles: **Admin**, **Film critic**, **Series critic**, **Game critic** and **User
 
 ### Demo accounts
 
-| Role | Email | Password |
-| --- | --- | --- |
-| Admin | admin@revizone.ir | admin123 |
-| Film critic | film@revizone.ir | film123 |
+| Role          | Email              | Password  |
+| ------------- | ------------------ | --------- |
+| Admin         | admin@revizone.ir  | admin123  |
+| Film critic   | film@revizone.ir   | film123   |
 | Series critic | series@revizone.ir | series123 |
-| Game critic | game@revizone.ir | game123 |
+| Game critic   | game@revizone.ir   | game123   |
 
 > ⚠️ **For development only.** Passwords are kept unencrypted in `localStorage`, and anyone can read them with the browser's dev tools. Before a public release, sign-in and data storage must move to a server.
 
@@ -132,3 +156,7 @@ Once the real content is written, remove `placeholder: true` from the item.
 ## License
 
 This project is released under the license in the [`LICENSE`](./LICENSE) file.
+
+```
+
+```
