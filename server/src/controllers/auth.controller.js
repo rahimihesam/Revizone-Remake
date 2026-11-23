@@ -38,3 +38,40 @@ export const register = async (req, res) => {
     });
   }
 };
+
+export const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await findUserByEmail(email);
+
+    if (!user) {
+      return res.status(409).json({
+        success: false,
+        message: "Invalid email or password",
+      });
+    }
+
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordMatch) {
+      return res.status(409).json({
+        success: false,
+        message: "Invalid email or password",
+      });
+    }
+
+    delete user.password;
+
+    return res.status(200).json({
+      success: true,
+      message: "User login successfully",
+      user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: error,
+    });
+  }
+};
