@@ -15,7 +15,9 @@
     "#api/*": "./src/api/*",
     "#controllers/*": "./src/controllers/*",
     "#config/*": "./src/config/*",
-    "#services/*": "./src/services/*"
+    "#services/*": "./src/services/*",
+    "#middlewares/*": "./src/middlewares/*",
+    "#utils/*": "./src/utils/*"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
