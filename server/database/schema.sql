@@ -11,9 +11,9 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     role ENUM(
         'user',
-        'movie_critic',
-        'series_critic',
-        'game_critic'
+        'critic_movie',
+        'critic_series',
+        'critic_game'
     ) NOT NULL DEFAULT 'user',
     critic_status ENUM(
     	'none',
