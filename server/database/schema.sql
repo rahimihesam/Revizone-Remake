@@ -6,7 +6,7 @@ use revizone_db;
 
 CREATE TABLE users (
 	id INT AUTO_INCREMENT PRIMARY KEY,
-    display_name VARCHAR(100) NOT NULL,
+    display_name VARCHAR(30) NOT NULL,
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     role ENUM(
